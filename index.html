@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anmol Bakers — Freshly Baked, Every Day</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf5ec;--card:#fff;--ink:#2b1b12;--mut:#7a6455;--acc:#b8541f;--acc2:#e9a23b;--line:#ead9c4;--dark:#2b1b12;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a120d;--card:#26190f;--ink:#f6e9d8;--mut:#b89f89;--acc:#e9894a;--acc2:#e9a23b;--line:#3b2819;--dark:#0f0a07}}
+:root[data-theme="dark"]{--bg:#1a120d;--card:#26190f;--ink:#f6e9d8;--mut:#b89f89;--acc:#e9894a;--acc2:#e9a23b;--line:#3b2819;--dark:#0f0a07}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
+a{color:inherit}.wrap{max-width:1100px;margin:auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font:800 22px 'Playfair Display',serif;color:var(--acc);text-decoration:none}
+nav .links{display:flex;gap:20px;align-items:center}nav .links a{text-decoration:none;font-weight:500;font-size:15px}
+.btn{display:inline-block;background:var(--acc);color:#fff;border:0;padding:12px 24px;border-radius:30px;font:600 15px Inter,sans-serif;cursor:pointer;text-decoration:none}
+.btn.alt{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}.btn.sm{padding:7px 14px;font-size:13px}.btn.red{background:#b3261e}
+.hero{padding:70px 0 60px;background:radial-gradient(circle at 80% 20%,rgba(233,162,59,.25),transparent 55%)}
+.hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(36px,6vw,64px);line-height:1.1}.hero h1 span{color:var(--acc)}
+.hero p{color:var(--mut);font-size:18px;max-width:480px}.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.art{font-size:clamp(110px,22vw,200px);text-align:center;filter:drop-shadow(0 12px 18px rgba(0,0,0,.2))}
+section{padding:60px 0}h2{font-size:clamp(28px,4vw,40px);margin-bottom:8px}.sub{color:var(--mut);margin:0 0 28px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}.tab{border:1.5px solid var(--line);background:var(--card);color:var(--ink);padding:8px 18px;border-radius:30px;cursor:pointer;font:500 14px Inter}
+.tab.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.pic{height:170px;display:flex;align-items:center;justify-content:center;font-size:76px;background:linear-gradient(135deg,rgba(233,162,59,.25),rgba(184,84,31,.15))}
+.pic img{width:100%;height:100%;object-fit:cover}.card .b{padding:14px 16px 16px}.card h3{font-size:19px}
+.card p{margin:4px 0 10px;color:var(--mut);font-size:14px}.price{font-weight:700;color:var(--acc);font-size:18px}
+.about{background:var(--dark);color:#f6e9d8}.about .sub{color:#c9b29c}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:20px}
+.feat div{border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:18px}.feat b{display:block;font-size:30px}
+.post{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:16px}
+.post small{color:var(--mut)}.post video,.post iframe{width:100%;max-height:360px;border-radius:12px;margin-top:10px;border:0}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:30px}.contact .card{padding:22px}.contact p{margin:6px 0}
+footer{padding:26px 0;text-align:center;color:var(--mut);border-top:1px solid var(--line);font-size:14px}
+footer a{cursor:pointer;text-decoration:underline}
+/* admin */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:50;display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:20px}
+.ov.on{display:flex}.panel{background:var(--bg);color:var(--ink);border-radius:20px;padding:24px;width:100%;max-width:820px;margin:auto}
+.panel h2{font-size:26px}input,select,textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit;margin:4px 0 10px}
+label{font-size:13px;font-weight:600;color:var(--mut)}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.item{display:flex;gap:10px;align-items:center;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px;margin-bottom:8px;flex-wrap:wrap}
+.item .t{flex:1;min-width:140px}.item input{width:110px;margin:0}.item .th{width:46px;height:46px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:26px;background:var(--line)}.item .th img{width:100%;height:100%;object-fit:cover}
+.msg{font-size:13px;color:var(--acc);min-height:18px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+@media(max-width:760px){.hero .wrap,.contact,.row{grid-template-columns:1fr}nav .links a.h{display:none}.art{order:-1;font-size:110px}}
+</style></head><body>
+<header><div class="wrap"><nav><a class="logo" href="#top">🥐 Anmol Bakers</a>
+<div class="links"><a class="h" href="#menu">Menu</a><a class="h" href="#about">About</a><a class="h" href="#news">Updates</a><a class="btn sm" href="#contact">Visit Us</a></div></nav></div></header>
+
+<div class="hero" id="top"><div class="wrap"><div>
+<h1>Baked fresh. <span>Made with love.</span></h1>
+<p id="tag">Cakes, pastries, breads and cookies baked fresh every morning at Anmol Bakers, Moongi Bungalow. Taste the difference that quality ingredients make.</p>
+<div class="cta"><a class="btn" href="#menu">Explore Menu</a><a class="btn alt" id="callBtn" href="#contact">Order Now</a></div></div>
+<div class="art">🎂</div></div></div>
+
+<section id="menu"><div class="wrap"><h2>Our Menu</h2><p class="sub">Handcrafted daily. Prices in PKR.</p>
+<div class="tabs" id="tabs"></div><div class="grid" id="grid"></div></div></section>
+
+<section class="about" id="about"><div class="wrap"><h2>Our Story</h2>
+<p class="sub">A neighbourhood bakery built on freshness, trust and taste.</p>
+<div class="feat"><div><b>🌾</b>Quality ingredients, no shortcuts</div><div><b>🔥</b>Baked fresh every single day</div><div><b>🎉</b>Custom cakes for every celebration</div><div><b>🤝</b>Friendly service you can count on</div></div></div></section>
+
+<section id="news"><div class="wrap"><h2>Latest Updates</h2><p class="sub">News, offers and videos from our kitchen.</p><div id="posts"></div></div></section>
+
+<section id="contact"><div class="wrap"><h2>Visit Anmol Bakers</h2><p class="sub">We would love to see you.</p>
+<div class="contact"><div class="card"><h3>Find us</h3><p id="addr"></p><p id="phone"></p><p id="hours"></p>
+<p><a class="btn" target="_blank" rel="noopener" href="https://maps.app.goo.gl/cwufB87reBHMvxkCA?g_st=am">📍 Open in Google Maps</a></p></div>
+<div class="card"><h3>Custom orders</h3><p>Birthdays, weddings, corporate boxes. Call or message us with your date, size and design.</p><p><a class="btn" id="wa" target="_blank" rel="noopener" href="#">💬 WhatsApp Us</a></p></div></div></div></section>
+
+<footer><div class="wrap">© <span id="yr"></span> Anmol Bakers · <a id="adminLink">Owner login</a></div></footer>
+
+<div class="ov" id="login"><div class="panel" style="max-width:380px"><h2>Owner Login</h2><p class="sub">Enter the admin password.</p>
+<input type="password" id="pw" placeholder="Password" autocomplete="current-password"><div class="msg" id="lm"></div>
+<button class="btn" id="lgo">Sign in</button> <button class="btn alt" id="lx">Cancel</button></div></div>
+
+<div class="ov" id="admin"><div class="panel">
+<div class="top"><h2>Admin Panel</h2><div><button class="btn sm alt" id="exp">Export backup</button> <button class="btn sm alt" id="lo">Log out</button> <button class="btn sm" id="ax">Close</button></div></div>
+<div class="msg" id="am"></div>
+<div class="tabs" style="margin-top:12px"><button class="tab on" data-p="p1">Products</button><button class="tab" data-p="p2">Posts &amp; Videos</button><button class="tab" data-p="p3">Shop Info</button></div>
+
+<div id="p1"><h3>Add / edit product</h3><input type="hidden" id="eid">
+<div class="row"><div><label>Name</label><input id="pn"></div><div><label>Price (PKR)</label><input id="pp" type="number" min="0"></div></div>
+<div class="row"><div><label>Category</label><input id="pc" list="cats" placeholder="Cakes, Pastries, Breads…"><datalist id="cats"></datalist></div><div><label>Photo (optional)</label><input id="pf" type="file" accept="image/*"></div></div>
+<label>Description</label><input id="pd"><button class="btn" id="ps">Save product</button> <button class="btn alt" id="pcl">Clear</button>
+<h3 style="margin-top:22px">All products</h3><div id="plist"></div></div>
+
+<div id="p2" hidden><h3>New post</h3><label>Title</label><input id="tt"><label>Text</label><textarea id="tx" rows="3"></textarea>
+<label>Video link (YouTube) or upload a short video</label><input id="vl" placeholder="https://www.youtube.com/watch?v=…"><input id="vf" type="file" accept="video/*">
+<button class="btn" id="po">Publish post</button><h3 style="margin-top:22px">Published posts</h3><div id="qlist"></div></div>
+
+<div id="p3" hidden><label>Tagline (home page)</label><textarea id="st" rows="2"></textarea><label>Address</label><input id="sa">
+<div class="row"><div><label>Phone</label><input id="sp"></div><div><label>WhatsApp number (e.g. 923001234567)</label><input id="sw"></div></div>
+<label>Opening hours</label><input id="sh"><button class="btn" id="ss">Save info</button></div>
+</div></div>
+
+<script>
+var H="6b87451efcf016a19367898f8e9d9703d132f227729ed907a373160cea42a409",KEY="anmol_v1";
+var D0={shop:{tag:"Cakes, pastries, breads and cookies baked fresh every morning at Anmol Bakers, Moongi Bungalow. Taste the difference that quality ingredients make.",addr:"Anmol Bakers, Moongi Bungalow (Plus Code 2P92+WQC)",phone:"Add phone number in Admin → Shop Info",wa:"",hours:"Open daily · Add your timings in Admin"},
+products:[["Chocolate Truffle Cake","Cakes",1800,"🎂","Rich layers of dark chocolate ganache (1 lb)"],["Black Forest Cake","Cakes",1600,"🍰","Cherries, cream and chocolate shavings (1 lb)"],["Chicken Patty","Savouries",120,"🥟","Flaky pastry with spiced chicken filling"],["Cream Roll","Pastries",90,"🥐","Crisp roll with fresh vanilla cream"],["Chocolate Pastry","Pastries",150,"🧁","Soft sponge, chocolate cream, glaze"],["Milk Bread","Breads",180,"🍞","Soft sandwich loaf, baked every morning"],["Butter Cookies","Cookies",450,"🍪","Crisp and buttery, per 500 g"],["Doughnut","Pastries",110,"🍩","Glazed with chocolate and sprinkles"]].map(function(a,i){return{id:"s"+i,name:a[0],cat:a[1],price:a[2],em:a[3],desc:a[4],img:""}}),posts:[]};
+var D;try{D=JSON.parse(localStorage.getItem(KEY))}catch(e){}if(!D||!D.shop)D=JSON.parse(JSON.stringify(D0));
+function save(){try{localStorage.setItem(KEY,JSON.stringify(D));return true}catch(e){note("Storage full — use smaller photos or videos.");return false}}
+function $(i){return document.getElementById(i)}
+function esc(s){var d=document.createElement("div");d.textContent=s==null?"":s;return d.innerHTML}
+function note(m){$("am").textContent=m;setTimeout(function(){if($("am").textContent==m)$("am").textContent=""},3500)}
+var cat="All";
+function render(){var s=D.shop;$("tag").textContent=s.tag;$("addr").textContent="📍 "+s.addr;$("phone").textContent="📞 "+s.phone;$("hours").textContent="🕒 "+s.hours;
+var w=(s.wa||"").replace(/\D/g,"");$("wa").href=w?"https://wa.me/"+w:"#contact";$("callBtn").href=w?"https://wa.me/"+w:"#contact";
+var cs=["All"];D.products.forEach(function(p){if(p.cat&&cs.indexOf(p.cat)<0)cs.push(p.cat)});if(cs.indexOf(cat)<0)cat="All";
+$("tabs").innerHTML=cs.map(function(c){return'<button class="tab'+(c==cat?" on":"")+'" data-c="'+esc(c)+'">'+esc(c)+'</button>'}).join("");
+var L=D.products.filter(function(p){return cat=="All"||p.cat==cat});
+$("grid").innerHTML=L.length?L.map(function(p){return'<div class="card"><div class="pic">'+(p.img?'<img alt="'+esc(p.name)+'" src="'+p.img+'">':esc(p.em||"🍞"))+'</div><div class="b"><h3>'+esc(p.name)+'</h3><p>'+esc(p.desc)+'</p><span class="price">Rs. '+Number(p.price).toLocaleString()+'</span></div></div>'}).join(""):"<p>No items yet.</p>";
+$("posts").innerHTML=D.posts.length?D.posts.map(postHtml).join(""):'<p class="sub">No updates yet. Check back soon!</p>';
+$("cats").innerHTML=cs.slice(1).map(function(c){return'<option value="'+esc(c)+'">'}).join("")}
+function yt(u){var m=(u||"").match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);return m?m[1]:null}
+function postHtml(p){var v="";if(p.video){v='<video controls preload="metadata" src="'+p.video+'"></video>'}else if(p.link){var id=yt(p.link);v=id?'<iframe src="https://www.youtube-nocookie.com/embed/'+id+'" allowfullscreen loading="lazy"></iframe>':'<p><a target="_blank" rel="noopener" href="'+esc(p.link)+'">Watch video</a></p>'}
+return'<div class="post"><h3>'+esc(p.title)+'</h3><small>'+esc(p.date)+'</small><p>'+esc(p.text)+'</p>'+v+'</div>'}
+$("tabs").onclick=function(e){if(e.target.dataset.c){cat=e.target.dataset.c;render()}};
+$("yr").textContent=new Date().getFullYear();
+/* admin */
+function lists(){$("plist").innerHTML=D.products.map(function(p){return'<div class="item"><div class="th">'+(p.img?'<img alt="" src="'+p.img+'">':esc(p.em||"🍞"))+'</div><div class="t"><b>'+esc(p.name)+'</b><br><small>'+esc(p.cat)+'</small></div><input type="number" min="0" value="'+p.price+'" data-pr="'+p.id+'" aria-label="Price"><button class="btn sm alt" data-ed="'+p.id+'">Edit</button><button class="btn sm red" data-dl="'+p.id+'">Delete</button></div>'}).join("")||"<p>No products.</p>";
+$("qlist").innerHTML=D.posts.map(function(p,i){return'<div class="item"><div class="t"><b>'+esc(p.title)+'</b><br><small>'+esc(p.date)+'</small></div><button class="btn sm red" data-dp="'+i+'">Delete</button></div>'}).join("")||"<p>No posts.</p>";
+var s=D.shop;$("st").value=s.tag;$("sa").value=s.addr;$("sp").value=s.phone;$("sw").value=s.wa;$("sh").value=s.hours}
+function clr(){["eid","pn","pp","pc","pd","pf"].forEach(function(i){$(i).value=""})}
+function shrink(f,cb){var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var m=700,k=Math.min(1,m/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*k;c.height=im.height*k;c.getContext("2d").drawImage(im,0,0,c.width,c.height);cb(c.toDataURL("image/jpeg",.78))};im.onerror=function(){cb("")};im.src=r.result};r.readAsDataURL(f)}
+$("ps").onclick=function(){var n=$("pn").value.trim(),pr=parseFloat($("pp").value);if(!n||isNaN(pr)||pr<0){note("Enter a name and a valid price.");return}
+function fin(img){var id=$("eid").value,p=D.products.filter(function(x){return x.id==id})[0];
+if(p){p.name=n;p.price=pr;p.cat=$("pc").value.trim()||"Other";p.desc=$("pd").value.trim();if(img)p.img=img}else D.products.unshift({id:"p"+Date.now(),name:n,price:pr,cat:$("pc").value.trim()||"Other",desc:$("pd").value.trim(),em:"🍞",img:img||""});
+if(save()){note("Product saved ✓");clr();lists();render()}}
+var f=$("pf").files[0];f?shrink(f,fin):fin("")};
+$("pcl").onclick=clr;
+$("plist").onclick=function(e){var t=e.target,id;
+if(id=t.dataset.dl){if(confirm("Delete this product?")){D.products=D.products.filter(function(x){return x.id!=id});save();lists();render()}}
+else if(id=t.dataset.ed){var p=D.products.filter(function(x){return x.id==id})[0];$("eid").value=p.id;$("pn").value=p.name;$("pp").value=p.price;$("pc").value=p.cat;$("pd").value=p.desc||"";window.scrollTo(0,0)}};
+$("plist").onchange=function(e){var id=e.target.dataset.pr;if(id){var p=D.products.filter(function(x){return x.id==id})[0],v=parseFloat(e.target.value);if(!isNaN(v)&&v>=0){p.price=v;if(save()){note("Price updated ✓");render()}}}};
+$("po").onclick=function(){var t=$("tt").value.trim();if(!t){note("Add a title.");return}
+function fin(v){D.posts.unshift({title:t,text:$("tx").value.trim(),link:$("vl").value.trim(),video:v||"",date:new Date().toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"})});
+if(save()){note("Posted ✓");["tt","tx","vl","vf"].forEach(function(i){$(i).value=""});lists();render()}else D.posts.shift()}
+var f=$("vf").files[0];if(f){if(f.size>3e6){note("Video too large (max 3 MB). Use a YouTube link instead.");return}var r=new FileReader();r.onload=function(){fin(r.result)};r.readAsDataURL(f)}else fin("")};
+$("qlist").onclick=function(e){var i=e.target.dataset.dp;if(i!=null&&confirm("Delete this post?")){D.posts.splice(+i,1);save();lists();render()}};
+$("ss").onclick=function(){D.shop={tag:$("st").value.trim(),addr:$("sa").value.trim(),phone:$("sp").value.trim(),wa:$("sw").value.trim(),hours:$("sh").value.trim()};if(save()){note("Shop info saved ✓");render()}};
+document.querySelectorAll(".panel .tab").forEach(function(b){b.onclick=function(){document.querySelectorAll(".panel .tab").forEach(function(x){x.classList.toggle("on",x==b)});["p1","p2","p3"].forEach(function(p){$(p).hidden=p!=b.dataset.p})}});
+$("exp").onclick=function(){var a=document.createElement("a");a.href="data:application/json;charset=utf-8,"+encodeURIComponent(JSON.stringify(D));a.download="anmol-bakers-backup.json";a.click()};
+function open_(id,on){$(id).classList.toggle("on",on)}
+$("adminLink").onclick=function(){if(sessionStorage&&0){}if(window.__in){lists();open_("admin",1)}else{$("pw").value="";$("lm").textContent="";open_("login",1);$("pw").focus()}};
+$("lx").onclick=function(){open_("login",0)};$("ax").onclick=function(){open_("admin",0)};$("lo").onclick=function(){window.__in=false;open_("admin",0)};
+function sha(s){var b=new TextEncoder().encode(s);return crypto.subtle.digest("SHA-256",b).then(function(h){return Array.from(new Uint8Array(h)).map(function(x){return x.toString(16).padStart(2,"0")}).join("")})}
+function go(){sha($("pw").value).then(function(h){if(h===H){window.__in=true;open_("login",0);lists();open_("admin",1)}else $("lm").textContent="Incorrect password."}).catch(function(){$("lm").textContent="Login unavailable in this browser."})}
+$("lgo").onclick=go;$("pw").onkeydown=function(e){if(e.key=="Enter")go()};
+render();
+</script></body></html>
